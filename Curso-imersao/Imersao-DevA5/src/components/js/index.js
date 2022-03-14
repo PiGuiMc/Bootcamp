@@ -66,17 +66,31 @@ function adicionarJogador(){
 }
 
 function finalizar(){
-    var pos=0, mPontos = 0;
-    for(let j=0; j<jogadores.length; j++){
-        if(mPontos < jogadores[j].pontos){
-            mPontos = jogadores[j].pontos
-            pos = j;
-        }
-    }
     var img = document.getElementById("imgGanhador");
-    img.innerHTML = "<img src= https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4RMWPc1s_cjUXLZ-K5Z9dz9rS92UTl7WOsQ&usqp=CAU >"
-    
     var ganhador = document.getElementById("ganhador");
-    ganhador.innerHTML = `O ganhador é o jogador(a) ${jogadores[pos].nome} com ${jogadores[pos].pontos}
-    Parabéns ${jogadores[pos].nome}!!!`
+    var pos=0, mPontos = 0, nEmp = 0, nPlacar = [];
+    if(jogadores.length > 0){
+        for(let j=0; j<jogadores.length; j++){
+            nPlacar.push(jogadores[j].pontos)
+        }
+        mPontos = Math.max(...nPlacar)
+    
+        for(let i=0; i<jogadores.length; i++){
+            if(mPontos == jogadores[i].pontos){
+                pos = i
+                nEmp++;
+            }
+        }
+    
+        if(nEmp > 1){
+            ganhador.innerHTML = `Não houve ganhador é um empate!!`
+        }else{
+            img.innerHTML = "<img src= https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4RMWPc1s_cjUXLZ-K5Z9dz9rS92UTl7WOsQ&usqp=CAU >"
+            ganhador.innerHTML = `O ganhador é o jogador(a) ${jogadores[pos].nome} com ${jogadores[pos].pontos} pontos.
+        Parabéns ${jogadores[pos].nome}!!!`
+        
+        }
+    }else{
+        document.getElementById("returnForm").innerHTML = "Precisa inserir o(s) jogador(es)!"
+    }
 }
