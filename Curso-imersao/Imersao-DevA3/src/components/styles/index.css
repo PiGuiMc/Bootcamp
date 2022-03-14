@@ -1,0 +1,28 @@
+body{
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.header{
+    text-align: center;
+}
+
+.filmes{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+body .form-select{
+    margin-left: 10px;
+    width: 300px;
+}
+
+.form-control{
+    margin-top: -38px;
+    margin-left: 400px;
+    width: 250px;
+}
+
+body #btsend{
+    margin-top: -65px;
+}
