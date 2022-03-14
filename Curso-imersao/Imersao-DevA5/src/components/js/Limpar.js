@@ -1,4 +1,4 @@
-function Limpar(i){
+function Limpar(){
     var img = document.getElementById("imgGanhador");
     for(let i=0; i<jogadores.length; i++){
         var jogador = jogadores[i]
